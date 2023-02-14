@@ -1,8 +1,9 @@
 const Router = require('express');
+const {pokemonsController, pokemonController, createPokemon} = require('../controllers/pokemons.controller');
 const router = Router();
-const {pokemonsController, createPokemon} = require('../controllers/pokemons.controller');
 
 router.get('/', pokemonsController);
+router.get('/:id', pokemonController);
 router.post('/', createPokemon);
 
 

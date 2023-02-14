@@ -1,12 +1,31 @@
 const pokemonsController = (req, res) => {
-    res.send("esta ruta trae todos los pokemones");
+    const { name } = req.query;
+    if (name) res.send(`Quiero buscar todos los que se llamen ${name}`)
+    else  res.send("Quiero enviar todos los pokemones");
+};
+
+const pokemonController = (req, res) => {
+    const { id } = req.params;
+        res.send(`Va a enviar el detalle del usuario ID ${id}`);
 };
 
 const createPokemon = (req, res) => {
-    res.send("esta ruta crea un nuevo pokemon");
+    const { id, name, life, atack, defense, speed, height, weight, type} = req.body;
+    res.send(`Estoy creando un pokemon con estos datos:
+    id:${id},
+    name:${name},
+    life:${life},
+    atack:${atack},
+    defense:${defense},
+    speed:${speed},
+    height:${height},
+    weight:${weight},
+    type:${type}
+    `);
 };
 
 module.exports = {
     pokemonsController,
+    pokemonController,
     createPokemon
 };

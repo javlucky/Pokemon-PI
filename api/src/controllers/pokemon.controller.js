@@ -1,5 +1,6 @@
-const pokemonController = (req, res) => {
-    res.status(200).send("esta ruta trae un pokemon por id");
-};
+//const pokemonController = (req, res) => {
+    //const { id } = req.params;
+        //res.send(`Va a enviar el detalle del usuario ID ${id}`);
+//};
 
-module.exports = pokemonController;
+//module.exports = pokemonController;

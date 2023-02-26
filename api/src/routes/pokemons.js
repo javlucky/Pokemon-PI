@@ -1,10 +1,12 @@
 const Router = require('express');
-const {pokemonsController, pokemonController, createPokemon} = require('../controllers/pokemons.controller');
+const { pokemonsHandler, pokemonHandler, createPokemonHandler } = require('../handlers/pokemons.handler');
+const validate = require('../middlewares/validaciones');
 const router = Router();
 
-router.get('/', pokemonsController);
-router.get('/:id', pokemonController);
-router.post('/', createPokemon);
+
+router.get('/', pokemonsHandler);
+router.get('/:id', pokemonHandler);
+router.post('/', validate, createPokemonHandler);
 
 
 module.exports = router;

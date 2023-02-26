@@ -8,12 +8,31 @@ module.exports = (sequelize) => {
       type: DataTypes.UUID,
       primaryKey: true,
       defaultValue: DataTypes.UUIDV4,
-      //type: DataTypes.STRING,
-      //allowNull: false,
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-    }
-  });
+    },
+    vida: {
+      type: DataTypes.INTEGER,
+      defaultValue: 50,
+    },
+    ataque: {
+      type: DataTypes.INTEGER,
+      defaultValue: 50,
+    },
+    defensa: {
+      type: DataTypes.INTEGER,
+      defaultValue: 50,
+    },
+    velocidad: {
+      type: DataTypes.INTEGER,
+      defaultValue: 50,
+    },
+    created: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
+    },
+  }, { timestamps: false }
+  );
 };

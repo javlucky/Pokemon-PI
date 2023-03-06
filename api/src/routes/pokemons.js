@@ -1,12 +1,14 @@
 const Router = require('express');
-const { pokemonsHandler, pokemonHandler, createPokemonHandler } = require('../handlers/pokemons.handler');
+const { pokemonsHandler, pokemonHandler, createPokemonHandler, modifyPokemonHandler, deletePokemonHandler } = require('../handlers/pokemons.handler');
 const validate = require('../middlewares/validaciones');
 const router = Router();
 
 
 router.get('/', pokemonsHandler);
 router.get('/:id', pokemonHandler);
-router.post('/', validate, createPokemonHandler);
+router.post('/create', validate, createPokemonHandler);
+router.put('/modif', modifyPokemonHandler);
+router.delete('/:id', deletePokemonHandler)
 
 
 module.exports = router;

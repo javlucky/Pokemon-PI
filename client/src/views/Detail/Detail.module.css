@@ -1,0 +1,232 @@
+/*.contGralDet{
+    background-color: antiquewhite;
+    background-image: url('../../../src/Assets/Images/fondo-detail2.jpg');
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: 1277px ;
+    height: 569px;
+}
+.contDetail{
+    width: 55%;
+    height: 300px;
+    margin-left: 270px;    
+    margin-top: 100px;
+    display: flex; /*con display, justify-content, aling-items -> dejo centrados los filtros*/
+    /*justify-content: center;
+    align-items: center; 
+    background-color: rgb(46, 44, 48);
+    border-radius: 20px;
+    border: 3px solid rgb(150, 80, 196);
+}
+.imagenPoke{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgb(150, 80, 196);
+    margin-left: 30px;
+    margin-right: 20px;
+}
+.textD{
+    flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin-right: 40px;
+    margin-left: 40px;
+   color: aqua;
+}
+.tipos{
+    color: green;
+}
+.tiposPoke{
+    margin-left: 5px;
+    margin-right: 10px;
+    color: rgb(32, 163, 108);
+}*/
+
+.div{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background: url('../../Assets/Images/BG-Home.jpg');
+    background-size: 100vw 100vh;
+    flex-wrap:wrap;
+    overflow: hidden;
+    flex-direction: column;  
+    align-items: center;
+    align-content: center;
+}
+.h1{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    /* margin-bottom: 3rem; */
+}
+.div1{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(144,238,144);
+    flex-wrap:wrap;
+    overflow: hidden;
+    border: 2px solid black ;
+    border-radius: 1rem;
+    width: 50vw;
+    height: 30rem;
+    margin-top:3rem;
+}
+.div105{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.div2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    /* margin-right: 6rem;
+    margin-left: 6em; */
+    width: 100%;
+    height: 70%;
+    margin-bottom: 1rem;
+}
+.div3{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    margin-right: 2rem;
+    margin-left: 4rem;
+}
+.link{
+    display: flex;
+    width: 8rem;
+    height: 2rem;
+    background-color: rgb(144,238,144);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    border: 2px solid black ;
+    text-decoration: none;
+    border-radius: 0.4rem;
+    margin-top: 0.4rem;
+}
+.link:hover{
+    transition: 0.4s;
+    text-decoration: none;
+    background-color: #5dc1cf;
+    color: white;
+    border: 2.5px solid white;
+}
+.btn{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.btnx{
+    background-color: rgb(168, 17, 17);
+    margin-left: 38rem;
+    border-radius: 0.3rem;
+}
+.btnx:hover{
+    transition: 0.4s;
+    text-decoration: none;
+    background-color: #5dc1cf;
+    color: white;
+    border: 2.5px solid white;
+}
+.load{
+    background-color: rgb(144,238,144);
+    border: 2px solid black;
+    border-radius: 0.4rem;
+}
+@media only screen and (max-width: 600px){
+    .link{
+        display: flex;
+        width: 80vw;
+        height: 2rem;
+        background-color: rgb(144,238,144);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        align-content: center;
+        border: 2px solid black ;
+        text-decoration: none;
+        border-radius: 0.4rem;
+        margin-top: 0.4rem;
+    }
+    .link:hover{
+        transition: 0.4s;
+        text-decoration: none;
+        background-color: #5dc1cf;
+        color: white;
+        border: 2.5px solid white;
+    }
+    .btn{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+    .div{
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        background: url('../../Assets/Images/pokemonres.jpg');
+        background-size: 100vw 100vh;
+        flex-wrap:wrap;
+        overflow: hidden;
+        flex-direction: column;  
+        align-items: center;
+        align-content: center;
+    }
+    .h1{
+        display: flex;
+        margin-bottom: 3rem;
+    }
+    .div1{
+        display: flex;
+        align-items: center;
+        align-content: center;
+        flex-direction: column;
+        justify-content: center;
+        background-color: hsla(0, 100%, 100%, 0.9);
+        flex-wrap:wrap;
+        overflow: hidden;
+        border: 2px solid black ;
+        border-radius: 1rem;
+        width: 80%;
+        height: 80%;
+        margin-top:0.5rem;
+        text-shadow: 1px 0 0 rgba(144,238,144), -1px 0 0 rgba(144,238,144),
+        0 1px 0 rgba(144,238,144), 0 -1px 0 rgba(144,238,144), 1px 1px 0 rgba(144,238,144), -1px -1px 0 rgba(43,233,223,0.781),
+        -1px 1px 0 rgba(144,238,144), 1px -1px 0 rgba(144,238,144);
+    }
+    .div2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-direction: column;
+        /* margin-right: 6rem;
+        margin-left: 6em; */
+        width: 100%;
+        height: 70%;
+        margin-bottom: 1rem;
+    }
+    .div3{
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        margin-right: 0;
+        margin-left: 0;
+    }
+}

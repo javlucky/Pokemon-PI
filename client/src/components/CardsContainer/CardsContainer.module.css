@@ -6,3 +6,9 @@
     flex-wrap: wrap;
     gap: 1em;
 }
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+}

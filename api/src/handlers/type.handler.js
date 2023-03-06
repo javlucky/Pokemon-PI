@@ -6,7 +6,7 @@ const typeHandler = async (req, res) => {
         const type = await getPokemonByType(name);
         res.status(201).json(type);
     } catch (error) {
-        res.status(400).json({ error: error.message });
+        res.status(400).json({ error: "Error al traer los types" });
     }
 };
 

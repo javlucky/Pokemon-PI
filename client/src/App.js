@@ -1,22 +1,23 @@
-import { Home, Landing, Detail, Form } from './views';
+import React from 'react';
 import './App.css';
-import { Route, useLocation } from 'react-router-dom';
-import NavBar from './components/NavBar/NavBar';
+import { Route } from 'react-router-dom';
+import Home from './views/Home/Home.jsx';
+import Landing from './views/Landing/Landing.jsx';
+import Detail from './views/Detail/Detail.jsx';
+import Form from './views/Form/Form.jsx';
+//import NavBar from './components/NavBar/NavBar';
 
 
 function App() {
-  const location = useLocation();
-  
+  //const location = useLocation();
+  /*{location.pathname !== "/" && <NavBar />}*/
   return (
     <div className="App">
-      {location.pathname !== "/" && <NavBar />}
-      <Route exact path="/" render={() => <Landing /> } />
-      <Route path="/home" render={() => <Home /> } />
-      <Route exact path="/detail" render={() => <Detail /> } />
-      <Route exact path="/create" render={() => <Form /> } />
       
-      
-
+      <Route exact path="/" component={Landing} />
+      <Route path="/home" component={Home} />
+      <Route path="/detail/:id" component={Detail} />
+      <Route path="/create" component={Form} />
     </div>
   );
 }

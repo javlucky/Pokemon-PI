@@ -1,5 +1,5 @@
 import { LOADING, SEARCH_P, GET_ALL_P, GET_ALL_T, POKE_DETAIL, RESET_DETAIL,DELETE_P_API,
-    FILTRO_AZ_ZA, FILTRO_HP, FILTRO_ORIGEN, FILTRO_TYPES, RESET_F} from './Actions/actionsTypes.js'
+    FILTRO_AZ_ZA, FILTRO_ATTACK, FILTRO_ORIGEN, FILTRO_TYPES, RESET_F} from './Actions/actionsTypes.js'
 
 const initialState = {
 allPokes: [],
@@ -58,7 +58,8 @@ switch(action.type){
        }
    case FILTRO_AZ_ZA:
        let ordenaAZ_ZA = [...state.resultsPokes];//sino asigno una copia NO se xq no renderizaba, 
-       if(action.payload === 'az'){              //si ordenaba en el estado global
+       console.log(action.payload);
+       if(action.payload === 'a-z'){              //si ordenaba en el estado global
            ordenaAZ_ZA = ordenaAZ_ZA.sort((a,b)=>{
                let nameA = a.name.toLowerCase(), nameB = b.name.toLowerCase();
                if(nameA > nameB) return 1;
@@ -66,7 +67,7 @@ switch(action.type){
                return 0;
            })
        }
-       if(action.payload === 'za'){
+       if(action.payload === 'z-a'){
            ordenaAZ_ZA = ordenaAZ_ZA.sort((a,b)=>{
                let nameA = a.name.toLowerCase(), nameB = b.name.toLowerCase();
                if(nameA > nameB) return -1;
@@ -78,17 +79,17 @@ switch(action.type){
            ...state,
            resultsPokes: ordenaAZ_ZA
        }
-   case FILTRO_HP:
-       let ordena_hp = [...state.resultsPokes];
+   case FILTRO_ATTACK:
+       let ordena_attack = [...state.resultsPokes];
        if(action.payload === 'max'){
-           ordena_hp.sort((a,b)=>{
+           ordena_attack.sort((a,b)=>{
            if(a.attack < b.attack) return 1;
            if(b.attack < a.attack) return -1;
            return 0;
            })
        }
        if(action.payload === 'min'){
-           ordena_hp.sort((a,b)=>{
+           ordena_attack.sort((a,b)=>{
                if(a.attack < b.attack) return -1;
                if(b.attack < a.attack) return 1;
                return 0;
@@ -96,7 +97,7 @@ switch(action.type){
        }
        return{
            ...state,
-           resultsPokes: ordena_hp
+           resultsPokes: ordena_attack
        }
    case FILTRO_ORIGEN:
        let origen = [...state.allPokes];

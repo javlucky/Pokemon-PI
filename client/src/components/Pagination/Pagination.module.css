@@ -1,8 +1,8 @@
-.pagination{
+/*.pagination{
     background: black;
     width: 95%;    
     border-radius: 10px;
-    display: flex; /*con display, justify-content, aling-items -> dejo centrados los filtros*/
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -56,4 +56,48 @@
     cursor: pointer;
     border: 2px solid rgb(52, 13, 104);
 
+}*/
+
+
+.li{
+    display: inline-block;  
+    
+    }
+
+.a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid white;
+    border-radius: 0.3rem;
+    background-color:#5dc1cf;
+    text-shadow: 1px 0 0 #fff, -1px 0 0 #fff,
+   0 1px 0 #fff, 0 -1px 0 #fff, 1px 1px 0 #fff, -1px -1px 0 #fff,
+   -1px 1px 0 #fff, 1px -1px 0 #fff;
+}
+.a2{
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 0.3rem;
+    background-color:#90ee90;
+    color: black;
+    text-shadow: 1px 0 0 #fff, -1px 0 0 #fff,
+   0 1px 0 #fff, 0 -1px 0 #fff, 1px 1px 0 #fff, -1px -1px 0 #fff,
+   -1px 1px 0 #fff, 1px -1px 0 #fff;
+}
+.a:hover{
+    transition: background-color .8s;
+    background-color: #5dc1cf;
+    color: white;
+    border: 1.5px solid white;
+} 
+.a2:hover{
+    transition: background-color .8s;
+    background-color: #5dc1cf;
+    color: white;
+    border: 1.5px solid white;
 }

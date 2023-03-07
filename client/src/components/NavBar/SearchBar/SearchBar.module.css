@@ -1,4 +1,4 @@
-.inputSearch{    
+/*.inputSearch{    
     width: 100px;
     padding: 8px;
     color: #35bcdd;
@@ -29,10 +29,10 @@
     color: red;
     /* margin-bottom: 5px;     
     margin-left: 5px;
-    margin-right: 5px;   */ 
-}
+    margin-right: 5px;   
+} */
 
-.btnSubmit{    
+/*.btnSubmit{    
     border-radius: 10px;
     color: #35bcdd;
     border-color: #35bcdd;;
@@ -47,4 +47,14 @@
     cursor: pointer;
     border: 2px solid rgb(109, 38, 150);
 
+}*/
+
+@media only screen and (max-width: 600px){
+    .input{
+        height: 2rem;    
+    }
+    .btn{
+        height:2.5rem;
+        width: 6rem;
+    }
 }

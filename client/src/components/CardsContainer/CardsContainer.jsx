@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../Card/Card";
 import style from './CardsContainer.module.css';
-import {getAllP, getAllT,filtroAZ_ZA, filtroHP, filtroOrigen, filtroTypes, resetF} from '../../redux/Actions/actions'
+import {getAllP, getAllT,filtroAZ_ZA, filtroOrigen, filtroTypes, resetF, filtroAttack} from '../../redux/Actions/actions'
 import Loading from '../Loading/Loading';
 import NotFound from "../NotFound/NotFound";
 import Pagination from "../Pagination/Pagination";
@@ -37,10 +37,10 @@ const CardsContainer = () => {
                 setCurrentPage(1);
                 break;
             case 'maxHp':
-                dispatch(filtroHP('max'));
+                dispatch(filtroAttack('max'));
                 break;
             case 'minHp':
-                dispatch(filtroHP('min'));
+                dispatch(filtroAttack('min'));
                 setCurrentPage(1);
                 break;
             case 'db':
@@ -71,23 +71,23 @@ const CardsContainer = () => {
 
 
     return(
-        <div className="cont-gral-pokes">
+        <div className={style.contGralPokes}>
             {//si laod es true cargo component loading
                 load ? 
                 (<div>
                     <Loading/>
                 </div>) 
                 : 
-                (<div className="cont-cards">
+                (<div className={style.contCards}>
                     {/*---FILTROS--------- */}
-                    <div className="cont-filtros">
-                        <button className="btn-filtro" id={'az'} onClick={handlerCL}>A-Z</button>
-                        <button className="btn-filtro" id={'za'} onClick={handlerCL}>Z-A</button>
-                        <button className="btn-filtro" id={'maxHp'} onClick={handlerCL}>+ HP</button>
-                        <button className="btn-filtro" id={'minHp'} onClick={handlerCL}>- HP</button>
-                        <button className="btn-filtro" id={'db'}  onClick={handlerCL}>Pokes DB</button>
-                        <button className="btn-filtro" id={'api'} onClick={handlerCL}>Pokes API</button>
-                        <select value={'default'} id={'tipos'} onChange={handlerCL} className="select-filtro">
+                    <div className={style.contFiltros}>
+                        <button className={style.btnFiltro} id={'az'} onClick={handlerCL}>A-Z</button>
+                        <button className={style.btnFiltro} id={'za'} onClick={handlerCL}>Z-A</button>
+                        <button className={style.btnFiltro} id={'maxHp'} onClick={handlerCL}>+ HP</button>
+                        <button className={style.btnFiltro} id={'minHp'} onClick={handlerCL}>- HP</button>
+                        <button className={style.btnFiltro} id={'db'}  onClick={handlerCL}>Pokes DB</button>
+                        <button className={style.btnFiltro} id={'api'} onClick={handlerCL}>Pokes API</button>
+                        <select value={'default'} id={'tipos'} onChange={handlerCL} className={style.selectFiltro}>
                             <option value={'default'} disabled>Types</option>
                             {
                                 allT[0] ? allT.map(t => {
@@ -97,7 +97,7 @@ const CardsContainer = () => {
                                  }) : <option>Loading...</option>                   
                             }
                         </select>
-                        <button className="btn-filtro" id={'reset'} onClick={handlerCL}>Reset Filters</button>
+                        <button className={style.btnFiltro} id={'reset'} onClick={handlerCL}>Reset Filters</button>
                     </div>                                      
                     {/*-------------------------------- */}
                     <div className={style.cards}>
@@ -117,7 +117,7 @@ const CardsContainer = () => {
                         }
                     </div>                        
                                                  
-                    <div className="pag">                    
+                    <div className={style.pag}>                    
                       <Pagination pokesXpage={pokesXpage} pokes={allP.length} pagination={pagination} currentpage={currentpage}/>
                     </div> 
                 </div>)

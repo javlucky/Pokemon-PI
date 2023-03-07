@@ -17,33 +17,22 @@ const axios = require("axios");
         };
     });*/
 
-const charactersByNameInApi = async (value) => {
-            const charaterPrueba = await axios.get(`https://pokeapi.co/api/v2/pokemon/${value.toLowerCase().trim()}`)
-            const characterValue = {
-                id:charaterPrueba.data.id,
-                name:charaterPrueba.data.name,
-                hp:charaterPrueba.data.stats[0].base_stat,
-                attack: charaterPrueba.data.stats[1].base_stat,
-                defense: charaterPrueba.data.stats[2].base_stat,
-                speed: charaterPrueba.data.stats[5].base_stat,
-                height:charaterPrueba.data.height,
-                weight: charaterPrueba.data.weight,
-                types: charaterPrueba.data.types.map(m=>m.type.name),
-                img: charaterPrueba.data.sprites.other.dream_world.front_default,
-            }
-            return characterValue
-};
+const findPokemonInApi = async (name) => {
+        let callApi = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+            .catch(()=>{ return false})
+        if(callApi)return true
+}
 
 const createPokemon = async (
-    { name, hp, attack, defense, speed, height, weight, type, img, created }) => {
+     name, hp, attack, defense, speed, height, weight, type, img, created ) => {
         console.log(name);
         if(name){
             let findDB = await Pokemon.findOne({
-                    where: {name: name}
+                    where: {name}
                 })
-            if(await findCharacterInApi(name)) throw new Error('the pokemon already exists...')
+            if(await findPokemonInApi(name)) throw new Error('the pokemon already exists...')
             else if(findDB) throw new Error('the pokemon already exists...')
-            else {let pokemonCreate= await Pokemon.create({
+            else {const pokemonCreate= await Pokemon.create({
                 name: name,
                 hp: hp,
                 attack: attack,
@@ -55,7 +44,7 @@ const createPokemon = async (
                 created: created
             })
             
-            let typesDb = await Type.findAll({
+            const typesDb = await Type.findAll({
                 where: {name:type}
             })
             
@@ -85,25 +74,25 @@ const getPokemonById = async (value) => {
             }
             return detailOfPoquemonInDb
     }else{ 
-        return charactersByNameInApi(value)
+        return pokemonsByNameInApi(value)
     }
 };
 
 const pokemonsByNameInApi = async (value) => {
-        const charaterPrueba = await axios.get(`https://pokeapi.co/api/v2/pokemon/${value.toLowerCase().trim()}`)
-        const characterValue = {
-            id:charaterPrueba.data.id,
-            name:charaterPrueba.data.name,
-            height:charaterPrueba.data.height,
-            hp:charaterPrueba.data.stats[0].base_stat,
-            attack: charaterPrueba.data.stats[1].base_stat,
-            defense: charaterPrueba.data.stats[2].base_stat,
-            speed: charaterPrueba.data.stats[5].base_stat,
-            weight: charaterPrueba.data.weight,
-            types: charaterPrueba.data.types.map(m=>m.type.name),
-            img: charaterPrueba.data.sprites.other.dream_world.front_default,
+        const pokemonPrueba = await axios.get(`https://pokeapi.co/api/v2/pokemon/${value.toLowerCase().trim()}`)
+        const pokemonValue = {
+            id: pokemonPrueba.data.id,
+            name: pokemonPrueba.data.name,
+            height: pokemonPrueba.data.height,
+            hp: pokemonPrueba.data.stats[0].base_stat,
+            attack: pokemonPrueba.data.stats[1].base_stat,
+            defense: pokemonPrueba.data.stats[2].base_stat,
+            speed: pokemonPrueba.data.stats[5].base_stat,
+            weight: pokemonPrueba.data.weight,
+            types: pokemonPrueba.data.types.map(m=>m.type.name),
+            img: pokemonPrueba.data.sprites.other.dream_world.front_default,
         }
-        return characterValue
+        return pokemonValue
 };
 
 const searchPokemonByName = async (name) => {
@@ -137,7 +126,7 @@ const getAllPokemons = async () => {
     const llamada2 = await axios.get(primerllamadaApiLimit.data.next)
     const pokemonsLLamados2 = await llamada2.data.results.map(m=>{return axios.get(m.url)})
     
-    const totalPokemons = [...pokemonsLLamados1,...pokemonsLLamados2]
+    const totalPokemons = [ ...pokemonsLLamados1, ...pokemonsLLamados2 ]
 
     const resPromises = await Promise.all(totalPokemons)
 

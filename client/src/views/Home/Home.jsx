@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllP, searchP, filtroOrigen, getAllT, filtroAZ_ZA, filtroHP } from '../../redux/Actions/actions';
+import { getAllP, searchP, filtroOrigen, getAllT, filtroAZ_ZA, filtroAttack } from '../../redux/Actions/actions';
 import { Link } from "react-router-dom";
 import style from './Home.module.css';
 import Card from '../../components/Card/Card';
@@ -14,20 +14,20 @@ import loadingGif from '../../Assets/Images/loading.gif';
 const Home = () => {
 
     const dispatch = useDispatch();
-    const allCharacters = useSelector((state)=>state.characters)
-    const [ setOrder ] = useState('')
+    const pokes = useSelector((state)=>state.resultsPokes)
+    const [ order, setOrder ] = useState('')
     const [currentPage, setCurrent]=useState(1)
-    const [charactersPerPage]=useState(12)
-    const indexOfLastCharacter = currentPage*charactersPerPage
-    const indexOfFirstCharacter = indexOfLastCharacter - charactersPerPage
-    const currentCharacters = allCharacters?.slice(indexOfFirstCharacter,indexOfLastCharacter)
+    const [pokesXpage, setPokesXpage]=useState(12)
+    const indexOfLastCharacter = currentPage*pokesXpage
+    const indexOfFirstCharacter = indexOfLastCharacter - pokesXpage
+    const currentCharacters = pokes?.slice(indexOfFirstCharacter,indexOfLastCharacter)
     const types = useSelector((state)=>state.types)
 
     useEffect(()=>{
         dispatch(getAllP());
         dispatch(getAllT());
     },[dispatch])
-    const paginated = (pageNumber)=>{
+    const pagination = (pageNumber)=>{
         setCurrent(pageNumber)
     }
     const numOfPage= (num)=>{
@@ -43,11 +43,11 @@ const Home = () => {
         e.preventDefault();
         dispatch(filtroAZ_ZA(e.target.value))
         setCurrent(1)
-        setOrder(`Ordenado ${e.target.value}`)
+        //setOrder(`Ordenado ${e.target.value}`)
     }
-    const handleSortHp = (e) => {
+    const handleSortAttack = (e) => {
         e.preventDefault();
-        dispatch(filtroHP(e.target.value))
+        dispatch(filtroAttack(e.target.value))
         setCurrent(1)
         setOrder(`Ordenado ${e.target.value}`)
     }
@@ -85,9 +85,9 @@ const Home = () => {
                             <option value="z-a">z-a</option>
                         </select>
                     </label>
-                    <label  className={style.labels}>Order By HP:
-                        <select className={style.select} onChange={e=>handleSortHp(e)}>
-                            <option value='hp'>HP</option>
+                    <label  className={style.labels}>Order By Attack:
+                        <select className={style.select} onChange={e=>handleSortAttack(e)}>
+                            <option value='At'>AT</option>
                             <option value='max'>Max</option>
                             <option value='min'>Min</option>
                         </select>
@@ -95,7 +95,7 @@ const Home = () => {
                     <label className={style.labels}>Filter by Type: 
                         <select className={style.select} onChange={e=> handleFilter(e)}>
                             <option value="all">All</option>
-                            {types.map(m=>{
+                            {types && types.map (m=>{
                                 return(
                                     <option value={m.name}>{m.name}</option>
                                 )
@@ -113,9 +113,9 @@ const Home = () => {
                 </div>
             </div>
                     <Pagination
-                        charactersPerPage= {charactersPerPage}
-                        allCharacters={allCharacters.length}
-                        paginated= {paginated}
+                        charactersPerPage= {pokesXpage}
+                        allPokemons={pokes.length}
+                        paginated= {pagination}
                         numOfPage={numOfPage}
                         />
                 <div className={style.paginatedYCard}>
@@ -123,7 +123,7 @@ const Home = () => {
                     {
                         currentCharacters.length!==0?currentCharacters.map(m=>{
                             return(
-                                <Link key={m.id} to={'/Details/'+m.id} className={style.link}>
+                                <Link key={m.id} to={'/detail/'+m.id} className={style.link}>
                                 <Card name={m.name} img={m.img} types={m.types} id={m.id} />
                             </Link>
                             )
@@ -136,9 +136,9 @@ const Home = () => {
                     </div>
                 </div>
                     <Pagination
-                        charactersPerPage= {charactersPerPage}
-                        allCharacters={allCharacters.length}
-                        paginated= {paginated}
+                        charactersPerPage= {pokesXpage}
+                        allPokemons={pokes.length}
+                        paginated= {pagination}
                         numOfPage={numOfPage}
                     />
         </div>

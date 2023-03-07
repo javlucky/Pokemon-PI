@@ -1,13 +1,24 @@
 .contGralCreate{
     display: flex; 
-    justify-content: center; 
+    justify-content: right; 
     height: 569px;    
     background-color:rgba(201, 194, 194, 0.466);
-    background-image: url('../../Assets/Images/pokebolas.jpg');
+    background-image: url('../../Assets/Images/fondo-detail2.jpg');
     background-position:center;
     background-repeat: no-repeat;
-    background-size: 1280px ;
-} 
+    /*background-size: 1280px ;*/
+    background-size: 100vw 100vh;
+}
+.navLink {
+font-family: 'Londrina Solid', cursive;
+font-size: xx-large;
+font-weight: 300;
+background-color: transparent;
+border-radius: 0.3rem;
+align-items: center;
+align-content: center;
+border: 1px solid black;
+}
 .contFormulario{
     margin-top: 40px;
     margin-right: 100px;
@@ -18,13 +29,17 @@
 .grupo3{
     float: right;
 }
-.label, .labelAtack{
+.label {
     font-size: 18px;
+    font-weight: 700;
     margin-left: 100px;
-    color: rgb(255, 0, 170);
+    color: white;
 }
-.labelAtack{
-    color: aqua;
+.labelType {
+    font-size: 18px;
+    font-weight: 700;
+    /*margin-left: 100px;*/
+    color: white;
 }
 .itemInput{
     background-color: black;
@@ -54,7 +69,7 @@
 }
 .selectTypesCreate{
     width: 140px;
-    margin-top: 20px;
+    margin-top: 5px;
     margin-left: 40px;
     background-color:rgb(80, 169, 196);
     color: black;

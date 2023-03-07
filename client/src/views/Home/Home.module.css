@@ -18,6 +18,8 @@
 }
 .h1h{
     /* margin-right: 4rem; */
+    font-family: 'Londrina Solid', cursive;
+    font-weight: 300;
     background-color: rgb(144,238,144);
     border-radius: 0.3rem;
     align-items: center;
@@ -25,8 +27,8 @@
     border: 1px solid black;
 }
 .img{
-    margin-left: 2rem;
-    margin-right: 2rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
 }
 .createLink{
     text-decoration: none;

@@ -4,14 +4,14 @@ import SearchBar from './SearchBar/SearchBar';
 
 const NavBar = () => {
     return(
-        <div className = { style.mainContainer }>
+        <div className = {style.navBar}>
             <nav>
-                <ul>
-                    <li>
+                <ul className={style.lista}>
+                    <li className={style.items}>
                         <NavLink to="/home">Home</NavLink>
                         <NavLink to="/create">Create pokemon</NavLink>
                     </li>
-                    <div className={ style.searchBar }>
+                    <div className={style.searchBar}>
                     <SearchBar />
                     </div>
                 </ul>

@@ -11,6 +11,7 @@ const Pagination = ({pokesXpage, pokes, pagination, numOfPage}) => {
     }
     return(
         <nav>
+            
             <ul className={style.ul}>
                 {numPage&&numPage.map(number=>(
                     <li className={style.li} key={number}>   

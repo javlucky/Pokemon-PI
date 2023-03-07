@@ -76,10 +76,11 @@ import { LOADING, SEARCH_P, GET_ALL_P, GET_ALL_T, POKE_DETAIL, RESET_DETAIL,DELE
             payload: filtro
         }
     }
-    export const filtroTypes = (tipos) => {
+    export const filtroTypes = (type) => {
+        console.log(type);
         return{
             type: FILTRO_TYPES,
-            payload: tipos
+            payload: type
         }
     }
     export const resetF = () => {

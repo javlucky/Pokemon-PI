@@ -7,7 +7,7 @@ import style from './Detail.module.css';
 //import NavBar from '../../components/NavBar/NavBar';
 //import Loading from '../../components/Loading/Loading';
 import loadingGif from '../../Assets/Images/loading.gif';
-import memechu from '../../Assets/Images/memechu.jpg'
+import memechu2 from '../../Assets/Images/memechu2.png'
 
 
 const Detail = (props) => {
@@ -17,7 +17,7 @@ const Detail = (props) => {
         return( ()=>{
             dispatch(resetDetail())
         })
-    },[dispatch, props.match.params.id])
+    },[dispatch])
 
     const history = useHistory()
     const pokemonDetail = useSelector((state) => state.pokeDetails)
@@ -43,9 +43,10 @@ const Detail = (props) => {
                         <h1 className={style.h1}>{pokemonDetail.name.toUpperCase()}</h1>
                     </div>
                     <div className={style.div2}>
-                        <img src={pokemonDetail.img?pokemonDetail.img:memechu} alt="" width="150em" height="200em" className={style.img}/>
+                        <img src={pokemonDetail.img?pokemonDetail.img:memechu2} alt="" width="150em" height="200em" className={style.img}/>
                         <div className={style.div3}>
                             <p>Hp: {pokemonDetail.hp}</p>
+                            <p>Id: {pokemonDetail.id} </p>
                             <p>Attack: {pokemonDetail.attack}</p>
                             <p>Defense: {pokemonDetail.defense}</p>
                             <p>speed: {pokemonDetail.speed}</p>

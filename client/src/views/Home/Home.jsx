@@ -1,13 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllP, searchP, filtroOrigen, getAllT, filtroAZ_ZA, filtroAttack } from '../../redux/Actions/actions';
+import { getAllP, filtroTypes, filtroOrigen, getAllT, filtroAZ_ZA, filtroAttack } from '../../redux/Actions/actions';
 import { Link } from "react-router-dom";
 import style from './Home.module.css';
 import Card from '../../components/Card/Card';
 import Pagination from "../../components/Pagination/Pagination";
 import SearchBar from "../../components/NavBar/SearchBar/SearchBar";
-import pokeicon from '../../Assets/Images/pokeicon.png';
+import pokeballPng from '../../Assets/Images/pokeball-png.png';
 import loadingGif from '../../Assets/Images/loading.gif';
 //import NavBar from "../../components/NavBar/NavBar";
 
@@ -53,7 +53,7 @@ const Home = () => {
     }
     const handleFilter = (e) => {
         e.preventDefault();
-        dispatch(searchP(e.target.value))
+        dispatch(filtroTypes(e.target.value))
         setCurrent(1)
         setOrder(`Ordenado ${e.target.value}`)
     }
@@ -69,7 +69,7 @@ const Home = () => {
                 <div className={style.homeBar}>
                     <Link className={style.linkH1} to='/'><h1 className={style.h1h}>Home</h1></Link>
                     <button className={style.btnImg} onClick={e=>{handleClick(e)}}>
-                        <img className={style.img} src={pokeicon} alt="" width="220em" height="95em" />
+                        <Link to={'/Create'}><img className={style.img} src={pokeballPng} alt="" width="105em" height="85em" /></Link>
                     </button>
                     <Link className={style.createLink} to='/Create'>Create Pokemon</Link>
                 </div>
@@ -105,7 +105,7 @@ const Home = () => {
                     <label className={style.labels}>Show Pokemons: 
                     <select className={style.select} onChange={e=> handleFilterCreated(e)}>
                         <option value="all">All</option>
-                        <option value="created">From DB</option>
+                        <option value="db">From DB</option>
                         <option value="api">From Api</option>
                     </select>
                     </label>
@@ -113,9 +113,9 @@ const Home = () => {
                 </div>
             </div>
                     <Pagination
-                        charactersPerPage= {pokesXpage}
-                        allPokemons={pokes.length}
-                        paginated= {pagination}
+                        pokesXpage= {pokesXpage}
+                        pokes={pokes.length}
+                        pagination= {pagination}
                         numOfPage={numOfPage}
                         />
                 <div className={style.paginatedYCard}>
@@ -136,9 +136,9 @@ const Home = () => {
                     </div>
                 </div>
                     <Pagination
-                        charactersPerPage= {pokesXpage}
-                        allPokemons={pokes.length}
-                        paginated= {pagination}
+                        pokesXpage= {pokesXpage}
+                        pokes={pokes.length}
+                        pagination= {pagination}
                         numOfPage={numOfPage}
                     />
         </div>

@@ -1,4 +1,19 @@
-/*.inputSearch{    
+.divSelectorYbar{
+    display: flex;
+    flex-wrap:wrap;
+    overflow: hidden;
+    background-color: rgb(144,238,144);
+    border: 1px solid black;
+    width: 50%;
+    height: 6rem;
+    margin-top: 0.5rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.inputSearch{    
     width: 100px;
     padding: 8px;
     color: #35bcdd;
@@ -29,10 +44,10 @@
     color: red;
     /* margin-bottom: 5px;     
     margin-left: 5px;
-    margin-right: 5px;   
-} */
+    margin-right: 5px;*/
+} 
 
-/*.btnSubmit{    
+.btnSubmit{    
     border-radius: 10px;
     color: #35bcdd;
     border-color: #35bcdd;;
@@ -42,18 +57,18 @@
     width: auto;
     margin-left: 5px;
 }
-.btn-submit:hover{
+.btnSubmit:hover{
     color: rgb(109, 38, 150);
     cursor: pointer;
     border: 2px solid rgb(109, 38, 150);
 
-}*/
+}
 
 @media only screen and (max-width: 600px){
-    .input{
+    .inputSearch{
         height: 2rem;    
     }
-    .btn{
+    .btnSubmit{
         height:2.5rem;
         width: 6rem;
     }

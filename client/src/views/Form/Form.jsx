@@ -3,6 +3,8 @@ import style from './Form.module.css';
 import NavBar from '../../components/NavBar/NavBar';
 import { useDispatch, useSelector } from "react-redux";
 import { getAllP, getAllT, postPoke } from '../../redux/Actions/actions';
+import { NavLink } from "react-router-dom";
+import pokeballPng from '../../Assets/Images/pokeball-png.png';
 
 const validate = (input) => {
     const errors = {};
@@ -74,7 +76,7 @@ const Form = () => {
     };
     return(
         <div>
-            <NavBar/>
+            <NavLink className={style.navLink} src={pokeballPng} to={'/home'}>Home</NavLink>
 
             <div className={style.contGralCreate}>
 
@@ -103,7 +105,7 @@ const Form = () => {
                         </div>
 
                         <div className="attack">
-                            <label className={style.labelAtack}>Attack: </label>
+                            <label className={style.label}>Attack: </label>
                             <input className={error.attack ? style.errorInput : style.itemInput} type={'number'} min={'1'} max={'100'} value={input.attack} id={'attack'} onChange={handlerCH} />
                             {error.attack && (<div><span className={style.spanError}>{error.attack}</span></div>)}
                         </div>
@@ -137,7 +139,7 @@ const Form = () => {
                     <div className={style.grupo3}>
                     
                     <div>
-                        <label className={style.label}>Type: </label><br></br>
+                        <label className={style.labelType}>Type: </label><br></br>
                         <select className={style.selectTypesCreate}  onChange={handlerCH} id={'tipitos'}>
                             { 
                                 allT[0] ? allT.map((t,i) => {
@@ -173,106 +175,6 @@ const Form = () => {
             </div>
         </div>
     )
-
-
-    /*const [form, setForm] = useState({
-        name:"",
-        vida:"",
-        ataque:"",
-        defensa:"",
-        velocidad:""
-    })
-
-    const [errors, setErrors] = useState({
-        name:"",
-        vida:"",
-        ataque:"",
-        defensa:"",
-        velocidad:""
-    })*/
-
-    /*const changeHandler = (event) => {
-        const property = event.target.name;
-        const value = event.target.value;
-
-        validate({...Form, [property]:value})
-
-        setForm({...Form, [property]:value})
-    }*/
-
- 
-
-        /*if(/^[a-zA-Z ]*$/.test(form.name)){
-            setErrors({ ...errors, name:""})
-        }else {
-            setErrors({ ...errors, name:"Hay un error en el nombre"})
-        }
-        if(form.name === "") setErrors({ ...errors, name:"El nombre esta vacio"})
-    }
-
-    const submitHandler = (event) => {
-        event.preventDefault()
-        console.log(form);
-        alert("Pokemon creado correctamente")
-    }
-
-    return(
-        <form onSubmit={submitHandler}>
-            <div>
-                <label>Name: </label>
-                <input 
-                    text="text" 
-                    value={form.name} 
-                    onChange={changeHandler} 
-                    name="name" 
-                />
-                <span>{errors.name}</span>
-            </div>
-
-            <div>
-                <label>Vida: </label>
-                <input 
-                    text="text" 
-                    value={form.vida} 
-                    onChange={changeHandler} 
-                    name="vida" 
-                />
-            </div>
-
-            <div>
-                <label>Ataque: </label>
-                <input 
-                    text="text" 
-                    value={form.ataque} 
-                    onChange={changeHandler} 
-                    name="ataque" 
-                />
-            </div>
-
-            <div>
-                <label>Defensa: </label>
-                <input 
-                    text="text" 
-                    value={form.defensa} 
-                    onChange={changeHandler} 
-                    name="defensa" 
-                />
-            </div>
-
-            <div>
-                <label>Velocidad: </label>
-                <input 
-                    text="text" 
-                    value={form.velocidad} 
-                    onChange={changeHandler} 
-                    name="velocidad" 
-                />
-            </div>
-
-            <button type="submit">SUBMIT</button>
-        </form>
-
-    )*/
 };
 
 

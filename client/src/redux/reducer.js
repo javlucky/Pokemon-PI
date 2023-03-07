@@ -22,7 +22,7 @@ switch(action.type){
            resultsPokes: action.payload,
            load: false
        }
-   case  GET_ALL_P:
+   case GET_ALL_P:
        return{
            ...state,
            allPokes: action.payload,
@@ -102,10 +102,10 @@ switch(action.type){
    case FILTRO_ORIGEN:
        let origen = [...state.allPokes];
        if(action.payload === 'db'){
-            origen = origen.filter(p => p.createDB);
+            origen = origen.filter(p => p.created);
        }
        if(action.payload === 'api'){
-           origen = origen.filter(p => !p.createDB);
+           origen = origen.filter(p => !p.created);
        }
         return{
            ...state,

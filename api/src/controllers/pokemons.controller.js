@@ -1,5 +1,6 @@
 const { Pokemon, Type } = require('../db');
 const axios = require("axios");
+const {Op} = require('sequelize');
 
 /*const cleanArray = (arr) => 
     arr.results.map((data) => {
@@ -80,7 +81,7 @@ const getPokemonById = async (value) => {
 
 const pokemonsByNameInApi = async (value) => {
         const pokemonPrueba = await axios.get(`https://pokeapi.co/api/v2/pokemon/${value.toLowerCase().trim()}`)
-        const pokemonValue = {
+        const pokemonValue = [{
             id: pokemonPrueba.data.id,
             name: pokemonPrueba.data.name,
             height: pokemonPrueba.data.height,
@@ -91,14 +92,14 @@ const pokemonsByNameInApi = async (value) => {
             weight: pokemonPrueba.data.weight,
             types: pokemonPrueba.data.types.map(m=>m.type.name),
             img: pokemonPrueba.data.sprites.other.dream_world.front_default,
-        }
+        }]
         return pokemonValue
 };
 
 const searchPokemonByName = async (name) => {
     let findNameInDb = await Pokemon.findAll({
-        where:{name:name.toLowerCase().trim()},
-        attributes:["id","name","hp","attack","defense","speed","height","weight","img",],
+        where: {name : {[Op.iLike] : `%${name}%`}},
+        attributes:["id","name","hp","attack","defense","speed","height","weight","img"],
         include:{
             model: Type,
             attributes: ['name'],
@@ -106,17 +107,17 @@ const searchPokemonByName = async (name) => {
                 attributes:[],
             },
         }
-    })
-
+     })
+    
     findNameInDb= findNameInDb.map(m=>{
         return {
         ...m.dataValues, 
        types: m.types?.map(m=>m.name)
     }})
-
+    
     if(!findNameInDb[0]) return pokemonsByNameInApi(name)
-
-    return findNameInDb[0]
+    
+    return findNameInDb;
 };
 
 const getAllPokemons = async () => {

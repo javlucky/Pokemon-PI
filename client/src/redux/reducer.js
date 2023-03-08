@@ -113,7 +113,7 @@ switch(action.type){
            load: false
        }
    case FILTRO_TYPES:
-       let fil_types = [...state.resultsPokes].filter(p => p.types.findIndex(t => t.name === action.payload) >= 0);
+       let fil_types = state.allPokes.filter(p => p.types.indexOf(action.payload) >= 0);
        return{
            ...state,
            resultsPokes: fil_types,

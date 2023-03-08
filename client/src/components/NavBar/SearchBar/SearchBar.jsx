@@ -55,6 +55,7 @@ const SearchBar = () => {
     };
     const handlerS = (e) => {
         e.preventDefault();
+    
         if(!input.name){
             alert("Ing nomb");
         }else if(!/^[a-zA-Z\s]*$/.test(input.name)){
@@ -62,9 +63,11 @@ const SearchBar = () => {
             setInput({name: ""});
         }            
         else{
+            
             dispatch(searchP(input.name));
             setInput({name: ""});
         }
+        
     };
 
     return(

@@ -12,8 +12,10 @@
 }
 
 .videoBg {
-        position: absolute;
+        position: fixed;
         width: 100%;
+        height: auto;
+        background-size: 100%;
         z-index: 1;
   }
 
@@ -50,9 +52,9 @@
 }
    
  .btn:hover {
-    color: rgb(209, 36, 143);
+    color: white;
     cursor: pointer;
-    border: 2px solid rgb(109, 38, 150);
+    border: 2px solid rgb(220, 79, 61);
  
 }
 
@@ -71,7 +73,7 @@
   }
 
   .videoBg {
-    position: absolute;
+    position: fixed;
     width: 100%;
     z-index: 1;
 }

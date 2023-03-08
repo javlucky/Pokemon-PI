@@ -3,10 +3,12 @@ import { LOADING, SEARCH_P, GET_ALL_P, GET_ALL_T, POKE_DETAIL, RESET_DETAIL,DELE
     FILTRO_ATTACK, FILTRO_ORIGEN, FILTRO_TYPES, RESET_F} from './actionsTypes.js'
 
     export const searchP = (name) => {
+        
         return async function(dispatch){
             dispatch({type: LOADING});
-    
+    console.log(name);
             const resp = await axios.get(`http://localhost:3001/pokemons?name=${name}`);
+            console.log(resp);
             dispatch({type: SEARCH_P, payload: resp.data});
         }
     }
@@ -25,9 +27,11 @@ import { LOADING, SEARCH_P, GET_ALL_P, GET_ALL_T, POKE_DETAIL, RESET_DETAIL,DELE
     }
     export const pokeDetail = (id) => {
         return async function(dispatch){
-            let resp = await fetch(`http://localhost:3001/pokemons/${id}`);
+            let resp = await fetch(`http://localhost:3001/pokemons/${id}`)
+            
             resp = await resp.json();
-            dispatch({type: POKE_DETAIL, payload: resp});
+            
+            dispatch({type: POKE_DETAIL, payload: resp.length ? resp[0] : {}});
         }
     }
     export const resetDetail = () => {
@@ -76,11 +80,10 @@ import { LOADING, SEARCH_P, GET_ALL_P, GET_ALL_T, POKE_DETAIL, RESET_DETAIL,DELE
             payload: filtro
         }
     }
-    export const filtroTypes = (type) => {
-        console.log(type);
+    export const filtroTypes = (filtro) => {
         return{
             type: FILTRO_TYPES,
-            payload: type
+            payload: filtro
         }
     }
     export const resetF = () => {

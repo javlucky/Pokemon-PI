@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap:wrap;
     overflow: hidden;
-    background-color: rgb(144,238,144);
+    background-color: transparent;
     border: 1px solid black;
     width: 50%;
     height: 6rem;
@@ -18,7 +18,7 @@
     padding: 8px;
     color: #35bcdd;
     border-color: #35bcdd;;
-    background-color: #bed3c3;
+    background-color: #EEEEEE;
     border: 2px solid none;
     border-radius: 10px;
     font-weight: bold;
@@ -49,18 +49,20 @@
 
 .btnSubmit{    
     border-radius: 10px;
-    color: #35bcdd;
-    border-color: #35bcdd;;
-    background-color: #030704;
+    color: black;
+    border-color: black;
+    background-color: rgb(220, 79, 61);
     border: 2px solid none;
     padding: 5px 12px;
     width: auto;
     margin-left: 5px;
 }
 .btnSubmit:hover{
-    color: rgb(109, 38, 150);
+    transition: 0.4s;
+    color: #03045e;
+    background-color: #ffb703;
     cursor: pointer;
-    border: 2px solid rgb(109, 38, 150);
+    border: 2px solid #03045e;
 
 }
 

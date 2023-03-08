@@ -7,7 +7,7 @@ import style from './Home.module.css';
 import Card from '../../components/Card/Card';
 import Pagination from "../../components/Pagination/Pagination";
 import SearchBar from "../../components/NavBar/SearchBar/SearchBar";
-import pokeballPng from '../../Assets/Images/pokeball-png.png';
+import pokemonLogo from '../../Assets/Images/Pokemon-logo.png';
 import loadingGif from '../../Assets/Images/loading.gif';
 //import NavBar from "../../components/NavBar/NavBar";
 
@@ -21,7 +21,7 @@ const Home = () => {
     const indexOfLastCharacter = currentPage*pokesXpage
     const indexOfFirstCharacter = indexOfLastCharacter - pokesXpage
     const currentCharacters = pokes?.slice(indexOfFirstCharacter,indexOfLastCharacter)
-    const types = useSelector((state)=>state.types)
+    const types = useSelector((state)=>state.allTypes)
 
     useEffect(()=>{
         dispatch(getAllP());
@@ -67,11 +67,11 @@ const Home = () => {
         <div className={style.div}>
             <div className={style.contenedor1}>
                 <div className={style.homeBar}>
-                    <Link className={style.linkH1} to='/'><h1 className={style.h1h}>Home</h1></Link>
+                    <Link  className={style.h1h}to='/'>Home</Link>
                     <button className={style.btnImg} onClick={e=>{handleClick(e)}}>
-                        <Link to={'/Create'}><img className={style.img} src={pokeballPng} alt="" width="105em" height="85em" /></Link>
+                        <Link to={'/Create'}><img className={style.img} src={pokemonLogo} alt="" width="150em" height="80em" /></Link>
                     </button>
-                    <Link className={style.createLink} to='/Create'>Create Pokemon</Link>
+                    <Link className={style.createLink} to='/Create'>Create</Link>
                 </div>
                 <div className={style.divSelectorYbar}>
                     <div className={style.searchbar}>

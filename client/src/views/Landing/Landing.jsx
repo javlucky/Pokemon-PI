@@ -1,4 +1,4 @@
-import pokemonCortado from '../../Assets/Images/pokemonCortado.mp4'
+import pokemonCortado2 from '../../Assets/Images/pokemonCortado2.webm';
 import style from './Landing.module.css'
 import { Link } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ const Landing = () => {
         <section className={style.mainContainer}>
             <video
             className={style.videoBg}
-            src={pokemonCortado}
+            src={pokemonCortado2}
             autoPlay
             loop
             muted
@@ -15,7 +15,7 @@ const Landing = () => {
             />
             <div className={style.innerContainer}>
                 <h1 className={style.title}>
-                Welcome to the world of pokemons...!!
+                Welcome to the pokemons world...!!
                 </h1>
                 <Link to="/home">
                     <button className={style.btn}>Let's Go!!</button>

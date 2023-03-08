@@ -2,7 +2,7 @@
     display: flex; 
     justify-content: right; 
     height: 569px;    
-    background-color:rgba(201, 194, 194, 0.466);
+    background-color:#c9c2c277;
     background-image: url('../../Assets/Images/fondo-detail2.jpg');
     background-position:center;
     background-repeat: no-repeat;
@@ -10,14 +10,23 @@
     background-size: 100vw 100vh;
 }
 .navLink {
-font-family: 'Londrina Solid', cursive;
-font-size: xx-large;
-font-weight: 300;
 background-color: transparent;
 border-radius: 0.3rem;
 align-items: center;
 align-content: center;
 border: 1px solid black;
+}
+.h1h{
+    text-decoration: none;
+    color: black;
+    width: 6rem;
+    text-transform: uppercase;
+    background-color: #dc4f3d;
+    background-size: 4rem 6rem;
+    border-radius: 50px;
+    /* align-items: center;
+    align-content: center; */
+    border: 1px solid black;
 }
 .contFormulario{
     margin-top: 40px;
@@ -33,7 +42,7 @@ border: 1px solid black;
     font-size: 18px;
     font-weight: 700;
     margin-left: 100px;
-    color: white;
+    color: #EEEE;
 }
 .labelType {
     font-size: 18px;

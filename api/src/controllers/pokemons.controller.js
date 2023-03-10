@@ -25,7 +25,7 @@ const findPokemonInApi = async (name) => {
 }
 
 const createPokemon = async (
-     name, hp, attack, defense, speed, height, weight, type, img, created ) => {
+     name, hp, attack, defense, speed, height, weight, type, region, img, created ) => {
         console.log(name);
         if(name){
             let findDB = await Pokemon.findOne({
@@ -41,6 +41,7 @@ const createPokemon = async (
                 speed: speed,
                 height: height,
                 weight: weight,
+                region: region,
                 img: img,
                 created: created
             })
@@ -163,20 +164,6 @@ const getAllPokemons = async () => {
     return llamadaTotal
 
 };
-
-/*const getAllPokemons = async () => {
-    const dataBasePokemons = await Pokemon.findAll();
-
-    const apiPokemonsRaw = (
-        (await axios.get("https://pokeapi.co/api/v2/pokemon")
-    )).data;
-
-    const apiPokemons = cleanArray(apiPokemonsRaw);
-
-    //const totalInfo = dataBasePokemons.concat(apiPokemons);
-    return [...dataBasePokemons, ...apiPokemons];
-    //return totalInfo;
-};*/
 
 const deletePokemon = async (id) => {
     let elimP = await Pokemon.destroy({

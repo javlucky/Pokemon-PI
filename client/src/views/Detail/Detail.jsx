@@ -17,7 +17,7 @@ const Detail = (props) => {
         return( ()=>{
             dispatch(resetDetail())
         })
-    },[dispatch])
+    },[dispatch, props.match.params.id])
 
     const history = useHistory()
     const pokemonDetail = useSelector((state) => state.pokeDetails)
